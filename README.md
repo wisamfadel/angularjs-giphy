@@ -1,4 +1,4 @@
 angularjs-giphy
 
 
-DEMO :  www.fadel.com/app
+DEMO :  www.fadel.ie/app
