@@ -1,0 +1,30 @@
+
+<div ng-controller="mainController">
+	<div class="spinner" ng-hide="dataLoaded">Loading...</div>
+	<div ng-show="dataLoaded">
+		
+		
+		<div class="pagination">
+		<h3>
+			<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+				Previous
+			</button>
+			{{currentPage+1}}/{{numberOfPages()}}
+			<button ng-disabled="currentPage >= 100/pageSize - 1" ng-click="currentPage=currentPage+1">
+				Next
+			</button>
+
+
+			Gify Size:
+			<select ng-model="mySize" ng-options="imgSize.name for imgSize in imgSizes"></select>
+		</h3>
+		</div>
+		<br><br><br><br>
+
+		<span ng-repeat="result in results | startFrom:currentPage*pageSize | limitTo:pageSize"> 
+			<a ng-href="#/detailview?gifid={{result.id}}&url={{result.images.fixed_width_downsampled.url}}&urlsource={{result.source}}&rating={{result.rating}}">
+				<img ng-src="{{result.images.fixed_width_downsampled.url}}" class="img-size" ng-class="{'img-size-large': mySize.size == 'img-size-large', 'img-size-small':  mySize.size == 'img-size-small','img-size-medium':  mySize.size == 'img-size-medium','img-size-extra-small':  mySize.size == 'img-size-extra-small'}" />
+			</a>
+		</span> 
+	</div> 
+</div>

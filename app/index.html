@@ -1,0 +1,41 @@
+  <!doctype html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cats & Dogs Giphy's</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link href="styles/gipty.css" rel="stylesheet"/>
+
+  </head>
+  <body ng-app="ngGiphyApp">
+
+    <div class="page {{ pageClass }}" ng-view></div>
+
+    <div>
+      <h1>Cats & Dogs Giphy's</h1>
+      <h2> <span>Show Cats</span>
+        <input type="checkbox" ng-model="showCats" />
+        <span>Show Dogs</span>
+        <input type="checkbox" ng-model="showDogs" />
+      </h2>
+      <div ng-show="showCats">
+        <div class="title">Cats:</div>
+        <ng-giphy-search query="cats" apikey="dc6zaTOxFJmzC" limit="100" ></ng-giphy-search>
+      </div>
+
+      <div ng-show="showDogs">
+        <div class="title">Dogs:</div>
+        <ng-giphy-search query="dogs" apikey="dc6zaTOxFJmzC" limit="100" ></ng-giphy-search>
+      </div>
+    </div> 
+
+    <script src="./angular/angular.min.js"></script>
+    <script src="./angular/angular-route.min.js"></script>
+    <script src="./angular/angular-animate.js"></script>
+    
+    <script src="./app.js"></script>
+  </body>
+  </html>
